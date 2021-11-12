@@ -69,15 +69,15 @@ namespace BurgerAPI.Controllers
         /// <summary>
         /// Get list of Burgers in a Place.
         /// </summary>
-        /// <param name="nationalParkId"> The Id of the Place.</param>
+        /// <param name="placeId"> The Id of the Place.</param>
         /// <returns></returns>
-        [HttpGet("[action]/{nationalParkId:int}")]
+        [HttpGet("[action]/{placeId:int}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<BurgerDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public IActionResult GetBurgerInPlace(int nationalParkId)
+        public IActionResult GetBurgerInPlace(int placeId)
         {
-            var objList = _BurgerRepo.GetBurgersInPlace(nationalParkId);
+            var objList = _BurgerRepo.GetBurgersInPlace(placeId);
             if (objList == null)
             {
                 return NotFound();
