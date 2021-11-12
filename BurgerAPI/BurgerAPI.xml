@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BurgerAPI</name>
+    </assembly>
+    <members>
+        <member name="M:BurgerAPI.Controllers.BurgersController.GetBurgers">
+            <summary>
+            Get the list of all Burgers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.BurgersController.GetBurger(System.Int32)">
+            <summary>
+            Get individual Burger.
+            </summary>
+            <param name="BurgerId"> The Id of the Burger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.BurgersController.GetBurgerInNationalPark(System.Int32)">
+            <summary>
+            Get list of Burgers in a Place.
+            </summary>
+            <param name="nationalParkId"> The Id of the Place.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.BurgersController.CreateBurger(BurgerAPI.Models.Dtos.BurgerCreateDto)">
+            <summary>
+            Create Burger
+            </summary>
+            <param name="BurgerDto"> Burger to be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.BurgersController.UpdateBurger(System.Int32,BurgerAPI.Models.Dtos.BurgerUpdateDto)">
+            <summary>
+            Update a Burger
+            </summary>
+            <param name="BurgerId"> The Id of the Burger.</param>
+            <param name="BurgerDto"> The details of the Burger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.BurgersController.DeleteBurger(System.Int32)">
+            <summary>
+            Delete a Burger.
+            </summary>
+            <param name="BurgerId"> The Id of the Burger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.PlacesController.GetPlaces">
+            <summary>
+            Get list of burger places.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.PlacesController.GetPlace(System.Int32)">
+            <summary>
+            Get an individual burger place.
+            </summary>
+            <param name="PlaceId"> The Id of the burger place.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.PlacesController.CreatePlace(BurgerAPI.Models.Dtos.PlaceCreateDto)">
+            <summary>
+            Create burger place
+            </summary>
+            <param name="PlaceDto"> Burger place to be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.PlacesController.UpdatePlace(System.Int32,BurgerAPI.Models.Dtos.PlaceUpdateDto)">
+            <summary>
+            Update a burger place
+            </summary>
+            <param name="PlaceId"> The Id of the burger place.</param>
+            <param name="PlaceDto"> The details of the burger place.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.PlacesController.DeletePlace(System.Int32)">
+            <summary>
+            Delete a burger place.
+            </summary>
+            <param name="PlaceId"> The Id of the burger place.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.UsersController.Authenticate(BurgerAPI.Models.Authentication)">
+            <summary>
+            Authenticating User.
+            </summary>
+            <param name="model">User to authenticate</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.UsersController.Register(BurgerAPI.Models.Authentication)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="model">Username and password to register</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
