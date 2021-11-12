@@ -81,6 +81,48 @@
             <param name="PlaceId"> The Id of the burger place.</param>
             <returns></returns>
         </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetReviews">
+            <summary>
+            Get the list of all Reviews.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetBurger(System.Int32)">
+            <summary>
+            Get individual Burger.
+            </summary>
+            <param name="ReviewId"> The Id of the Burger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetBurgerInPlace(System.Int32)">
+            <summary>
+            Get list of Reviews in a Place.
+            </summary>
+            <param name="placeId"> The Id of the Place.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.CreateReview(BurgerAPI.Models.Dtos.ReviewCreateDto)">
+            <summary>
+            Create Review
+            </summary>
+            <param name="ReviewDto"> Review to be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.UpdateReview(System.Int32,BurgerAPI.Models.Dtos.ReviewUpdateDto)">
+            <summary>
+            Update a Review
+            </summary>
+            <param name="ReviewId"> The Id of the Review.</param>
+            <param name="ReviewDto"> The details of the Review.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.DeleteReview(System.Int32)">
+            <summary>
+            Delete a Review.
+            </summary>
+            <param name="ReviewId"> The Id of the Review.</param>
+            <returns></returns>
+        </member>
         <member name="M:BurgerAPI.Controllers.UsersController.Authenticate(BurgerAPI.Models.Authentication)">
             <summary>
             Authenticating User.
