@@ -65,8 +65,9 @@ namespace BurgerAPI.Controllers
             var objDto = _mapper.Map<ReviewDto>(obj);
             return Ok(objDto);
         }
+
         /// <summary>
-        /// Get list of Reviews in a Place.
+        /// Get list of Reviews from a specific Place.
         /// </summary>
         /// <param name="placeId"> The Id of the Place.</param>
         /// <returns></returns>
@@ -74,9 +75,33 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReviewDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public IActionResult GetBurgerInPlace(int placeId)
+        public IActionResult GetReviewFromPlace(int placeId)
         {
             var objList = _ReviewRepo.GetReviewsFromPlace(placeId);
+            if (objList == null)
+            {
+                return NotFound();
+            }
+            var objDto = new List<ReviewDto>();
+            foreach (var obj in objList)
+            {
+                objDto.Add(_mapper.Map<ReviewDto>(obj));
+            }
+            return Ok(objDto);
+        }
+
+        /// <summary>
+        /// Get list of Reviews about a specific Burger.
+        /// </summary>
+        /// <param name="burgerId"> The Id of the Burger.</param>
+        /// <returns></returns>
+        [HttpGet("[action]/{placeId:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReviewDto>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public IActionResult GetReviewFromBurger(int burgerId)
+        {
+            var objList = _ReviewRepo.GetReviewsFromBurger(burgerId);
             if (objList == null)
             {
                 return NotFound();
