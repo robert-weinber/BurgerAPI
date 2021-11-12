@@ -21,7 +21,7 @@
             <summary>
             Get list of Burgers in a Place.
             </summary>
-            <param name="nationalParkId"> The Id of the Place.</param>
+            <param name="placeId"> The Id of the Place.</param>
             <returns></returns>
         </member>
         <member name="M:BurgerAPI.Controllers.BurgersController.CreateBurger(BurgerAPI.Models.Dtos.BurgerCreateDto)">
