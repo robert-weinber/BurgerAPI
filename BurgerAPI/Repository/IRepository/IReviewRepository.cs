@@ -11,6 +11,7 @@ namespace BurgerAPI.Repository.IRepository
         ICollection<Review> GetReviews();
         ICollection<Review> GetReviewsFromPlace(int pId);
         ICollection<Review> GetReviewsFromBurger(int bId);
+        ICollection<Review> GetReviewsFromUser(int uId);
         Review GetReview(int ReviewId);
         bool ReviewExists(int burgerId, int userId);
         bool ReviewExists(int id);

@@ -68,5 +68,10 @@ namespace BurgerAPI.Repository
         {
             return _db.Reviews.Include(a => a.Burger).Where(a => a.BurgerId == bId).ToList();
         }
+
+        public ICollection<Review> GetReviewsFromUser(int uId)
+        {
+            return _db.Reviews.Include(a => a.Burger).Where(a => a.UserId == uId).ToList();
+        }
     }
 }

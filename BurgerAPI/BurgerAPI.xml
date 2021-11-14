@@ -94,11 +94,18 @@
             <param name="ReviewId"> The Id of the Burger.</param>
             <returns></returns>
         </member>
-        <member name="M:BurgerAPI.Controllers.ReviewsController.GetBurgerInPlace(System.Int32)">
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetReviewFromPlace(System.Int32)">
             <summary>
-            Get list of Reviews in a Place.
+            Get list of Reviews from a specific Place.
             </summary>
             <param name="placeId"> The Id of the Place.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetReviewFromBurger(System.Int32)">
+            <summary>
+            Get list of Reviews about a specific Burger.
+            </summary>
+            <param name="burgerId"> The Id of the Burger.</param>
             <returns></returns>
         </member>
         <member name="M:BurgerAPI.Controllers.ReviewsController.CreateReview(BurgerAPI.Models.Dtos.ReviewCreateDto)">
