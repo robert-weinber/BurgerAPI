@@ -1,4 +1,5 @@
 ﻿using BurgerAPI.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,6 @@ namespace BurgerAPI.Repository.IRepository
         bool UpdateReview(Review Review);
         bool DeleteReview(Review Review);
         bool Save();
+        bool AddImageAsync(string name, IFormFile file);
     }
 }

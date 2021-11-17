@@ -89,9 +89,9 @@
         </member>
         <member name="M:BurgerAPI.Controllers.ReviewsController.GetBurger(System.Int32)">
             <summary>
-            Get individual Burger.
+            Get individual Review.
             </summary>
-            <param name="ReviewId"> The Id of the Burger.</param>
+            <param name="ReviewId"> The Id of the Review.</param>
             <returns></returns>
         </member>
         <member name="M:BurgerAPI.Controllers.ReviewsController.GetReviewFromPlace(System.Int32)">
@@ -106,6 +106,13 @@
             Get list of Reviews about a specific Burger.
             </summary>
             <param name="burgerId"> The Id of the Burger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetReviewFromUser(System.Int32)">
+            <summary>
+            Get list of Reviews from a specific User.
+            </summary>
+            <param name="userId"> The Id of the User.</param>
             <returns></returns>
         </member>
         <member name="M:BurgerAPI.Controllers.ReviewsController.CreateReview(BurgerAPI.Models.Dtos.ReviewCreateDto)">
@@ -128,6 +135,14 @@
             Delete a Review.
             </summary>
             <param name="ReviewId"> The Id of the Review.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BurgerAPI.Controllers.ReviewsController.AddImageToReview(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds an image to a review.
+            </summary>
+            <param name="ReviewId"> The Id of the Review.</param>
+            <param name="file"> The image to be uploaded</param>
             <returns></returns>
         </member>
         <member name="M:BurgerAPI.Controllers.UsersController.Authenticate(BurgerAPI.Models.Authentication)">

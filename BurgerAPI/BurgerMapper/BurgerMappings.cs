@@ -19,6 +19,8 @@ namespace BurgerAPI.BurgerMapper
             CreateMap<Burger, BurgerCreateDto>().ReverseMap();
             CreateMap<Burger, BurgerUpdateDto>().ReverseMap();
             CreateMap<Review, ReviewDto>().ReverseMap();
+            CreateMap<Review, ReviewCreateDto>().ReverseMap();
+            CreateMap<Review, ReviewUpdateDto>().ReverseMap();
         }
     }
 }
