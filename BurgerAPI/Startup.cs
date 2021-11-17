@@ -60,7 +60,7 @@ namespace BurgerAPI
             services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
-            services.AddSingleton<CloudBlobClient>(sp => { return CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=wrobi;AccountKey=/u8VEPnbb1MxGZTj1MlaLCORQUldiyIrnFBu5h5LCaz/uI9J+NuigLQVe+Y6qxoOexHYsVa3v6GMjMVNVxQ+7A==;EndpointSuffix=core.windows.net").CreateCloudBlobClient(); });
+            services.AddSingleton<CloudBlobClient>(sp => { return CloudStorageAccount.Parse(Configuration.GetConnectionString("BlobConnection")).CreateCloudBlobClient(); });
 
 
             var appSettingsSection = Configuration.GetSection("AppSettings");
