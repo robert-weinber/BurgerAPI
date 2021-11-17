@@ -24,7 +24,7 @@ namespace BurgerAPI.Initializer
                 {
                     _db.Database.Migrate();
                 }
-            }catch(Exception ex)
+            }catch(Exception)
             {
 
             }
