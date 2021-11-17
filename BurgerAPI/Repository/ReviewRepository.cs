@@ -90,9 +90,9 @@ namespace BurgerAPI.Repository
                 var _task = Task.Run(() => blob.UploadFromStreamAsync(file.OpenReadStream()));
                 _task.Wait();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw (ex);
+                return false;
             }
 
             return true;
