@@ -97,5 +97,25 @@ namespace BurgerAPI.Repository
 
             return true;
         }
+
+        public bool DeleteImageAsync(string name)
+        {
+            string FileName = name;
+            var container = _cloudBlobClient.GetContainerReference("reviews");
+            var blob = container.GetBlockBlobReference(FileName);
+
+            try
+            {
+
+                var _task = Task.Run(() => blob.DeleteAsync());
+                _task.Wait();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

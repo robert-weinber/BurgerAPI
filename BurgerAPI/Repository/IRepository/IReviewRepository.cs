@@ -21,5 +21,6 @@ namespace BurgerAPI.Repository.IRepository
         bool DeleteReview(Review Review);
         bool Save();
         bool AddImageAsync(string name, IFormFile file);
+        bool DeleteImageAsync(string name);
     }
 }

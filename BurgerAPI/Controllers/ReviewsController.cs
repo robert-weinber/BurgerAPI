@@ -253,5 +253,38 @@ namespace BurgerAPI.Controllers
             }
             return NoContent();
         }
+
+        /// <summary>
+        /// Deletes image from a review.
+        /// </summary>
+        /// <param name="ReviewId"> The Id of the Review.</param>
+        /// <returns></returns>
+        [HttpPost("{ReviewId:int}", Name = "DeleteImageFromReview")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult DeleteImageFromReview(int ReviewId)
+        {
+            var obj = _ReviewRepo.GetReview(ReviewId);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            var FileName = $"{ReviewId}.jpg";
+
+            if (!_ReviewRepo.DeleteImageAsync(FileName))
+            {
+                ModelState.AddModelError("", $"Something went wrong when deleting image from review {ReviewId}");
+                return StatusCode(500, ModelState);
+            }
+
+            obj.ImageUrl = "";
+            if (!_ReviewRepo.UpdateReview(obj))
+            {
+                ModelState.AddModelError("", $"Something went wrong when updatnig the image URL of review {ReviewId}");
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
+        }
     }
 }
