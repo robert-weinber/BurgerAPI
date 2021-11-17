@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace BurgerAPI
 {
@@ -22,7 +21,7 @@ namespace BurgerAPI
             foreach (var desc in provider.ApiVersionDescriptions)
             {
                 options.SwaggerDoc(
-                    desc.GroupName, new Microsoft.OpenApi.Models.OpenApiInfo()
+                    desc.GroupName, new OpenApiInfo()
                     {
                         Title = $"Burger API {desc.ApiVersion}",
                         Version = desc.ApiVersion.ToString()
