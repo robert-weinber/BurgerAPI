@@ -56,7 +56,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesDefaultResponseType]
         [Authorize(Roles = "Admin")]
-        public IActionResult GetBurger(int ReviewId)
+        public IActionResult GetReview(int ReviewId)
         {
             var obj = _ReviewRepo.GetReview(ReviewId);
             if (obj == null)
