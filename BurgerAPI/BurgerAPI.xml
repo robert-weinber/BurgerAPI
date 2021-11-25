@@ -88,7 +88,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BurgerAPI.Controllers.ReviewsController.GetBurger(System.Int32)">
+        <member name="M:BurgerAPI.Controllers.ReviewsController.GetReview(System.Int32)">
             <summary>
             Get individual Review.
             </summary>
