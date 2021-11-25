@@ -63,5 +63,25 @@ namespace BurgerAPI.Repository
         {
             return _db.Burgers.Include(a => a.Place).Where(a => a.PlaceId == pId).ToList();
         }
+
+        public double GetBurgerScore(int burgerId)
+        {
+            return _db.Reviews.Where(a => a.BurgerId == burgerId).Select(a => (a.Taste + a.Texture + a.Visual) / 3.0).Average();
+        }
+
+        public double GetBurgerTasteScore(int burgerId)
+        {
+            return _db.Reviews.Where(a => a.BurgerId == burgerId).Select(a => a.Taste).Average();
+        }
+
+        public double GetBurgerTextureScore(int burgerId)
+        {
+            return _db.Reviews.Where(a => a.BurgerId == burgerId).Select(a => a.Texture).Average();
+        }
+
+        public double GetBurgerVisualScore(int burgerId)
+        {
+            return _db.Reviews.Where(a => a.BurgerId == burgerId).Select(a => a.Visual).Average();
+        }
     }
 }

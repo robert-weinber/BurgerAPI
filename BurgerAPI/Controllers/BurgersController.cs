@@ -170,5 +170,93 @@ namespace BurgerAPI.Controllers
             }
             return NoContent();
         }
+
+        /// <summary>
+        /// Get the total score of a Burger.
+        /// </summary>
+        /// <param name="BurgerId"> The Id of the Burger.</param>
+        /// <returns></returns>
+
+        [HttpGet("[action]/{BurgerId:int}", Name = "GetBurgerScore")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetBurgerScore(int BurgerId)
+        {
+            double score = _BurgerRepo.GetBurgerScore(BurgerId);
+            if (score == 0)
+            {
+                return NotFound();
+            }
+            return Ok(score);
+        }
+
+        /// <summary>
+        /// Get the taste score of a Burger.
+        /// </summary>
+        /// <param name="BurgerId"> The Id of the Burger.</param>
+        /// <returns></returns>
+
+        [HttpGet("[action]/{BurgerId:int}", Name = "GetBurgerTasteScore")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetBurgerTasteScore(int BurgerId)
+        {
+            double score = _BurgerRepo.GetBurgerTasteScore(BurgerId);
+            if (score == 0)
+            {
+                return NotFound();
+            }
+            return Ok(score);
+        }
+
+        /// <summary>
+        /// Get the texture score of a Burger.
+        /// </summary>
+        /// <param name="BurgerId"> The Id of the Burger.</param>
+        /// <returns></returns>
+
+        [HttpGet("[action]/{BurgerId:int}", Name = "GetBurgerTextureScore")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetBurgerTextureScore(int BurgerId)
+        {
+            double score = _BurgerRepo.GetBurgerTextureScore(BurgerId);
+            if (score == 0)
+            {
+                return NotFound();
+            }
+            return Ok(score);
+        }
+
+        /// <summary>
+        /// Get the visual score of a Burger.
+        /// </summary>
+        /// <param name="BurgerId"> The Id of the Burger.</param>
+        /// <returns></returns>
+
+        [HttpGet("[action]/{BurgerId:int}", Name = "GetBurgerVisualScore")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetBurgerVisualScore(int BurgerId)
+        {
+            double score = _BurgerRepo.GetBurgerVisualScore(BurgerId);
+            if (score == 0)
+            {
+                return NotFound();
+            }
+            return Ok(score);
+        }
     }
 }

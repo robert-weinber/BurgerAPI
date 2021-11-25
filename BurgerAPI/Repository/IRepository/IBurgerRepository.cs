@@ -17,5 +17,9 @@ namespace BurgerAPI.Repository.IRepository
         bool UpdateBurger(Burger Burger);
         bool DeleteBurger(Burger Burger);
         bool Save();
+        double GetBurgerScore(int burgerId);
+        double GetBurgerTasteScore(int burgerId);
+        double GetBurgerTextureScore(int burgerId);
+        double GetBurgerVisualScore(int burgerId);
     }
 }
