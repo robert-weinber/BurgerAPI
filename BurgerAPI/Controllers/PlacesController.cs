@@ -70,13 +70,14 @@ namespace BurgerAPI.Controllers
         /// Create burger place
         /// </summary>
         /// <param name="PlaceDto"> Burger place to be added.</param>
+        /// <param name="version"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(PlaceDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesDefaultResponseType]
-        public IActionResult CreatePlace([FromBody]PlaceCreateDto PlaceDto)
+        public IActionResult CreatePlace([FromBody]PlaceCreateDto PlaceDto, ApiVersion version)
         {
             if(PlaceDto == null)
             {
@@ -93,8 +94,10 @@ namespace BurgerAPI.Controllers
                 ModelState.AddModelError("",$"Something went wrong when saving the record {Placeobj.Name}");
                 return StatusCode(500, ModelState);
             }
-            return CreatedAtRoute("GetPlace",new { version=HttpContext.GetRequestedApiVersion().ToString(), 
-                                                        PlaceId = Placeobj.Id },Placeobj);
+            //var version = HttpContext.GetRequestedApiVersion();
+            return CreatedAtRoute("GetPlace",new {
+                V = version.ToString(), 
+                PlaceId = Placeobj.Id },Placeobj);
         }
 
         /// <summary>

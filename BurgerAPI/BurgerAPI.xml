@@ -59,11 +59,12 @@
             <param name="PlaceId"> The Id of the burger place.</param>
             <returns></returns>
         </member>
-        <member name="M:BurgerAPI.Controllers.PlacesController.CreatePlace(BurgerAPI.Models.Dtos.PlaceCreateDto)">
+        <member name="M:BurgerAPI.Controllers.PlacesController.CreatePlace(BurgerAPI.Models.Dtos.PlaceCreateDto,Microsoft.AspNetCore.Mvc.ApiVersion)">
             <summary>
             Create burger place
             </summary>
             <param name="PlaceDto"> Burger place to be added.</param>
+            <param name="version"></param>
             <returns></returns>
         </member>
         <member name="M:BurgerAPI.Controllers.PlacesController.UpdatePlace(System.Int32,BurgerAPI.Models.Dtos.PlaceUpdateDto)">
