@@ -226,7 +226,7 @@ namespace BurgerAPI.Controllers
         /// <param name="ReviewId"> The Id of the Review.</param>
         /// <param name="file"> The image to be uploaded</param>
         /// <returns></returns>
-        [HttpPost("{ReviewId:int}", Name = "AddImageToReview")]
+        [HttpPatch("[action]/{ReviewId:int}", Name = "AddImageToReview")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult AddImageToReview(int ReviewId, [FromForm] IFormFile file)
@@ -259,7 +259,7 @@ namespace BurgerAPI.Controllers
         /// </summary>
         /// <param name="ReviewId"> The Id of the Review.</param>
         /// <returns></returns>
-        [HttpPost("{ReviewId:int}", Name = "DeleteImageFromReview")]
+        [HttpPatch("[action]/{ReviewId:int}", Name = "DeleteImageFromReview")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult DeleteImageFromReview(int ReviewId)
