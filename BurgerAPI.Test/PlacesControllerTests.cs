@@ -10,6 +10,10 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using BurgerAPI.Models.Dtos;
+using Microsoft.EntityFrameworkCore;
+using BurgerAPI.Data;
+using BurgerAPI.Repository;
+using Microsoft.AspNetCore.Http;
 
 namespace BurgerAPI.Test
 {
@@ -52,6 +56,35 @@ namespace BurgerAPI.Test
             var resultPlace = (PlaceDto)result.Value;
             Assert.Equal(resultPlace.ToString(), map.Map<PlaceDto>(fakePlace).ToString());
 
+        }
+
+        [Fact]
+        public void CreatePlaceSuccess()
+        {
+            var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            builder.UseInMemoryDatabase(databaseName: "InMemoryDb");
+            var options = builder.Options;
+
+            using (var context = new ApplicationDbContext(options))
+            {
+                var controller = new PlacesController(new PlaceRepository(context), map);
+
+                var testPlace = new PlaceCreateDto()
+                {
+                    City = "asd",
+                    Address = "asd",
+                    Name = "asd",
+                    Info = "asd",
+                    Openings = "asd"
+
+                };
+                var actionResult = controller.CreatePlace(testPlace, new ApiVersion(1, 0));
+
+                var result = (ObjectResult)actionResult;
+
+                //Assert
+                Assert.Equal(StatusCodes.Status201Created, result.StatusCode);
+            }
         }
     }
 }
