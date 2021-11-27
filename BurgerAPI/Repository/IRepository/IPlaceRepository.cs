@@ -10,6 +10,7 @@ namespace BurgerAPI.Repository.IRepository
     {
         ICollection<Place> GetPlaces();
         ICollection<Place> GetPlacesByCity(string City);
+        ICollection<string> GetAllCities();
         Place GetPlace(int PlaceId);
         bool PlaceExists(string name);
         bool PlaceExists(int id);

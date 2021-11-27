@@ -27,6 +27,11 @@ namespace BurgerAPI.Repository
             return Save();
         }
 
+        public ICollection<string> GetAllCities()
+        {
+            return _db.Places.Select(a=> a.City).Distinct().ToList();
+        }
+
         public Place GetPlace(int PlaceId)
         {
             return _db.Places.FirstOrDefault(n => n.Id == PlaceId);
