@@ -150,5 +150,22 @@ namespace BurgerAPI.Controllers
             }
             return NoContent();
         }
+
+        /// <summary>
+        /// Get all available cities.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("[action]",Name = "GetAllCities")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<string>))]
+        public IActionResult GetAllCities()
+        {
+            var cities = _pRepo.GetAllCities();
+
+            if (cities.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(cities);
+        }
     }
 }
