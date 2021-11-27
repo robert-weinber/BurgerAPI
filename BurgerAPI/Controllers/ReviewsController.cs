@@ -219,6 +219,11 @@ namespace BurgerAPI.Controllers
                 ModelState.AddModelError("", $"Something went wrong when deleting the record {Reviewobj.Title}");
                 return StatusCode(500, ModelState);
             }
+            var delImage = (ObjectResult)DeleteImageFromReview(ReviewId);
+            if (delImage.StatusCode != StatusCodes.Status204NoContent)
+            {
+                ModelState.AddModelError("", $"Something went wrong when deleting the image of he record {Reviewobj.Title}");
+            }
             return NoContent();
         }
 
