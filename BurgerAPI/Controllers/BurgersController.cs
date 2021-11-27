@@ -55,7 +55,6 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesDefaultResponseType]
-        [Authorize(Roles = "Admin")]
         public IActionResult GetBurger(int BurgerId)
         {
             var obj = _BurgerRepo.GetBurger(BurgerId);
@@ -100,6 +99,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateBurger([FromBody]BurgerCreateDto BurgerDto)
         {
             if(BurgerDto == null)
@@ -129,6 +129,7 @@ namespace BurgerAPI.Controllers
         [HttpPatch("{BurgerId:int}", Name = "UpdateBurger")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Admin")]
         public IActionResult UpdateBurger(int BurgerId, [FromBody] BurgerUpdateDto BurgerDto)
         {
 
@@ -155,6 +156,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteBurger(int BurgerId)
         {
 

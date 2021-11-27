@@ -55,7 +55,6 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesDefaultResponseType]
-        [Authorize(Roles = "Admin")]
         public IActionResult GetReview(int ReviewId)
         {
             var obj = _ReviewRepo.GetReview(ReviewId);
@@ -149,6 +148,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesDefaultResponseType]
+        [Authorize]
         public IActionResult CreateReview([FromBody]ReviewCreateDto ReviewDto)
         {
             if(ReviewDto == null)
@@ -178,6 +178,7 @@ namespace BurgerAPI.Controllers
         [HttpPatch("{ReviewId:int}", Name = "UpdateReview")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public IActionResult UpdateReview(int ReviewId, [FromBody] ReviewUpdateDto ReviewDto)
         {
 
@@ -204,6 +205,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public IActionResult DeleteReview(int ReviewId)
         {
 
@@ -229,6 +231,7 @@ namespace BurgerAPI.Controllers
         [HttpPatch("[action]/{ReviewId:int}", Name = "AddImageToReview")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public IActionResult AddImageToReview(int ReviewId, [FromForm] IFormFile file)
         {
             var obj = _ReviewRepo.GetReview(ReviewId);
@@ -262,6 +265,7 @@ namespace BurgerAPI.Controllers
         [HttpPatch("[action]/{ReviewId:int}", Name = "DeleteImageFromReview")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public IActionResult DeleteImageFromReview(int ReviewId)
         {
             var obj = _ReviewRepo.GetReview(ReviewId);

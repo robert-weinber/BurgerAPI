@@ -53,7 +53,6 @@ namespace BurgerAPI.Controllers
         [HttpGet("{PlaceId:int}", Name = "GetPlace")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PlaceDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Authorize]
         [ProducesDefaultResponseType]
         public IActionResult GetPlace(int PlaceId)
         {
@@ -77,6 +76,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreatePlace([FromBody]PlaceCreateDto PlaceDto, ApiVersion version)
         {
             if(PlaceDto == null)
@@ -109,6 +109,7 @@ namespace BurgerAPI.Controllers
         [HttpPatch("{PlaceId:int}", Name = "UpdatePlace")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Admin")]
         public IActionResult UpdatePlace(int PlaceId, [FromBody] PlaceUpdateDto PlaceDto)
         {
 
@@ -135,6 +136,7 @@ namespace BurgerAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeletePlace(int PlaceId)
         {
 
