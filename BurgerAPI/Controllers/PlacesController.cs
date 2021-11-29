@@ -66,6 +66,24 @@ namespace BurgerAPI.Controllers
         }
 
         /// <summary>
+        /// Get list of burger places in a city.
+        /// </summary>
+        /// <param name="City"> The name of the city.</param>
+        /// <returns></returns>
+        [HttpGet("{City:string}", Name = "GetPlacesByCity")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<PlaceDto>))]
+        public IActionResult GetPlacesByCity(string City)
+        {
+            var objList = _pRepo.GetPlacesByCity(City);
+            var objDto = new List<PlaceDto>();
+            foreach (var obj in objList)
+            {
+                objDto.Add(_mapper.Map<PlaceDto>(obj));
+            }
+            return Ok(objDto);
+        }
+
+        /// <summary>
         /// Create burger place
         /// </summary>
         /// <param name="PlaceDto"> Burger place to be added.</param>

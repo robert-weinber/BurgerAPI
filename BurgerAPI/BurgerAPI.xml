@@ -87,6 +87,13 @@
             <param name="PlaceId"> The Id of the burger place.</param>
             <returns></returns>
         </member>
+        <member name="M:BurgerAPI.Controllers.PlacesController.GetPlacesByCity(System.String)">
+            <summary>
+            Get list of burger places in a city.
+            </summary>
+            <param name="City"> The name of the city.</param>
+            <returns></returns>
+        </member>
         <member name="M:BurgerAPI.Controllers.PlacesController.CreatePlace(BurgerAPI.Models.Dtos.PlaceCreateDto,Microsoft.AspNetCore.Mvc.ApiVersion)">
             <summary>
             Create burger place
